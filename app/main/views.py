@@ -3,12 +3,13 @@ import math
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user
 from app import utils
-from models import CfgNotify, resource_point, wangge_point
+from models import CfgNotify, wangge_point
 from app.main.forms import CfgNotifyForm, wanggeForm
 from . import main
 
 logger = get_logger(__name__)
 cfg = get_config()
+
 
 # 通用列表查询
 def common_list(DynamicModel, view):
@@ -93,15 +94,16 @@ def notifylist():
 def notifyedit():
     return common_edit(CfgNotify, CfgNotifyForm(), 'notifyedit.html')
 
+
 # 网格查询
 @main.route('/wanggelist', methods=['GET', 'POST'])
 @login_required
-def notifylist():
+def wanggelist():
     return common_list(wangge_point, 'wanggelist.html')
 
 
 # 网格修改
 @main.route('/wanggeedit', methods=['GET', 'POST'])
 @login_required
-def notifyedit():
+def wanggeedit():
     return common_edit(wangge_point, wanggeForm(), 'wanggeedit.html')
