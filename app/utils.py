@@ -4,7 +4,7 @@ import html
 import json
 import datetime
 from urllib.parse import unquote
-from app.models import CfgNotify
+from models import CfgNotify
 from flask import Response, flash
 
 
@@ -52,7 +52,7 @@ def dict_to_obj(dict, obj, exclude=None):
 
 # peewee转dict
 def obj_to_dict(obj, exclude=None):
-    dict = obj.__dict__['_data']
+    dict = obj.__dict__['__data__']
     if exclude:
         for key in exclude:
             if key in dict: dict.pop(key)
