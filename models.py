@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from peewee import MySQLDatabase, Model, CharField, BooleanField, IntegerField
+from peewee import MySQLDatabase, Model, CharField, BooleanField, IntegerField, BigIntegerField
 import json
 from werkzeug.security import check_password_hash
 from flask_login import UserMixin
@@ -50,6 +50,88 @@ class CfgNotify(BaseModel):
     status = BooleanField(default=True)  # 生效失效标识
 
 
+# 网格配置
+class wangge_point(BaseModel):
+    # 日期 = CharField()
+    riqi = CharField()
+    # 县市 = CharField()
+    xianshi = CharField()
+    # 县市编号
+    xianshi_bianhao = BigIntegerField()
+    # 区域
+    quyu = CharField()
+    # 区域编号
+    quyu_bianhao = BigIntegerField()
+    # 乡镇街道
+    xiangzhen = CharField()
+    # 乡镇街道编号
+    xiangzhen_biahao = BigIntegerField()
+    # 社区
+    shequ = CharField()
+    # 社区编号
+    shequ_bianhao = BigIntegerField()
+    # 行政村
+    xingzhengcun = CharField()
+    # 行政村编号
+    xingzhengcun_bianhao = BigIntegerField()
+    # 最终组织编号
+    zuizhongzuzhi_bianhao = BigIntegerField()
+    # 最终组织
+    zuizhongzuzhi = CharField()
+    # 县市
+    # xianshi = CharField()
+    # 网格经理账号
+    wanggejingli_zhanghao = CharField()
+    # 网格经理
+    wanggejingli = CharField()
+    # 对应大市场网格编号
+    dashichangwangge_bianhao = BigIntegerField()
+    # 对应大市场网格名称
+    dashichangwangge_mingcheng = CharField()
+
+    status = BooleanField(default=True)  # 生效失效标识
+
+# 资源点配置
+class resource_point(BaseModel):
+    # 日期 = CharField()
+    riqi = CharField()
+    # 县市 = CharField()
+    xianshi = CharField()
+    # 县市编号
+    xianshi_bianhao = BigIntegerField()
+    # 区域
+    quyu = CharField()
+    # 区域编号
+    quyu_bianhao = BigIntegerField()
+    # 乡镇街道
+    xiangzhen = CharField()
+    # 乡镇街道编号
+    xiangzhen_biahao = BigIntegerField()
+    # 社区
+    shequ = CharField()
+    # 社区编号
+    shequ_bianhao = BigIntegerField()
+    # 行政村
+    xingzhengcun = CharField()
+    # 行政村编号
+    xingzhengcun_bianhao = BigIntegerField()
+    # 最终组织编号
+    zuizhongzuzhi_bianhao = BigIntegerField()
+    # 最终组织
+    zuizhongzuzhi = CharField()
+    # 县市
+    # xianshi = CharField()
+    # 网格经理账号
+    wanggejingli_zhanghao = CharField()
+    # 网格经理
+    wanggejingli = CharField()
+    # 对应大市场网格编号
+    dashichangwangge_bianhao = BigIntegerField()
+    # 对应大市场网格名称
+    dashichangwangge_mingcheng = CharField()
+
+    status = BooleanField(default=True)  # 生效失效标识
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(User.id == int(user_id))
@@ -58,7 +140,7 @@ def load_user(user_id):
 # 建表
 def create_table():
     db.connect()
-    db.create_tables([CfgNotify, User])
+    db.create_tables([wangge_point, resource_point, CfgNotify, User])
 
 
 if __name__ == '__main__':
