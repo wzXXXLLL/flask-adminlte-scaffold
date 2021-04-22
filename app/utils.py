@@ -4,7 +4,7 @@ import html
 import json
 import datetime
 from urllib.parse import unquote
-from models import CfgNotify, wangge_point
+from models import CfgNotify, wangge_point, User
 from flask import Response, flash
 
 
@@ -83,6 +83,8 @@ def get_model_by_name(model_name):
         DynamicModel = CfgNotify
     elif model_name == 'wangge':
         DynamicModel = wangge_point
+    elif model_name == 'user':
+        DynamicModel = User
     else:
         DynamicModel = None
     return DynamicModel

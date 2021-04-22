@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}网格配置{% endblock %}
+{% block title %}用户配置{% endblock %}
 
 
 {% block navbar %}
 <section class="content-header">
-    <h1>网格配置</h1>
+    <h1>用户配置</h1>
     <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> 当前位置</li>
-        <li class="active">网格管理</li>
-        <li class="active">网格配置</li>
+        <li class="active">用户管理</li>
+        <li class="active">用户配置</li>
     </ol>
 </section>
 {% endblock %}
@@ -26,50 +26,32 @@
         <div class="box-body">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>{{form.quyu.label}}</label>
-                    {{form.quyu(class_="form-control select2",placeholder="请输入 列表顺序")}}
+                    <label>{{form.username.label}}</label>
+                    {{form.username(class_="form-control",placeholder="请输入 列表顺序")}}
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>{{form.xiangzhen.label}}</label>
-                    {{form.xiangzhen(class_="form-control",placeholder="请输入")}}
+                    <label>{{form.password.label}}</label>
+                    {{form.password(class_="form-control select2",placeholder="请输入")}}
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>{{form.shequ.label}}</label>
-                    {{form.shequ(class_="form-control",placeholder="请输入")}}
+                    <label>{{form.fullname.label}}</label>
+                    {{form.fullname(class_="form-control",placeholder="请输入")}}
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>{{form.xingzhengcun.label}}</label>
-                    {{form.xingzhengcun(class_="form-control",placeholder="请输入")}}
+                    <label>{{form.email.label}}</label>
+                    {{form.email(class_="form-control",placeholder="请输入")}}
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>{{form.zuizhongzuzhi.label}}</label>
-                    {{form.zuizhongzuzhi(class_="form-control",placeholder="请输入")}}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>{{form.wanggejingli.label}}</label>
-                    {{form.wanggejingli(class_="form-control",placeholder="请输入")}}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>{{form.dashichangwangge.label}}</label>
-                    {{form.dashichangwangge(class_="form-control",placeholder="请输入")}}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>{{form.dashichangwangge_bianhao.label}}</label>
-                    {{form.dashichangwangge_bianhao(class_="form-control",placeholder="请输入")}}
+                    <label>{{form.phone.label}}</label>
+                    {{form.phone(class_="form-control",placeholder="请输入")}}
                 </div>
             </div>
 

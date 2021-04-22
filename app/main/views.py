@@ -3,8 +3,8 @@ import math
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user
 from app import utils
-from models import CfgNotify, wangge_point
-from app.main.forms import CfgNotifyForm, wanggeForm
+from models import CfgNotify, wangge_point, User
+from app.main.forms import CfgNotifyForm, wanggeForm, userForm
 from . import main
 
 logger = get_logger(__name__)
@@ -107,3 +107,17 @@ def wanggelist():
 @login_required
 def wanggeedit():
     return common_edit(wangge_point, wanggeForm(), 'wanggeedit.html')
+
+
+# 用户查询
+@main.route('/userlist', methods=['GET', 'POST'])
+@login_required
+def userlist():
+    return common_list(User, 'userlist.html')
+
+
+# 用户修改
+@main.route('/useredit', methods=['GET', 'POST'])
+@login_required
+def useredit():
+    return common_edit(User, userForm(), 'useredit.html')

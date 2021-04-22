@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}网格查询{% endblock %}
+{% block title %}用户查询{% endblock %}
 {% block navbar %}
 <section class="content-header">
-    <h1>网格查询</h1>
+    <h1>用户查询</h1>
     <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> 当前位置</li>
-        <li class="active">网格管理</li>
-        <li class="active">网格查询</li>
+        <li class="active">用户管理</li>
+        <li class="active">用户查询</li>
     </ol>
 </section>
 {% endblock %}
@@ -23,14 +23,11 @@
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>区域</th>
-                <th>乡镇街道</th>
-                <th>社区</th>
-                <th>行政村</th>
-                <th>最终组织</th>
-                <th>网格经理</th>
-                <th>对应大市场网格名称</th>
-                <th>对应大市场网格编号</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>真实姓名</th>
+                <th>邮箱</th>
+                <th>电话</th>
                 <th>状态</th>
                 <th>编辑</th>
                 <th>删除</th>
@@ -38,14 +35,11 @@
             {% for row in form.content %}
             <tr>
                 <td>{{row.id}}</td>
-                <td>{{row.quyu}}</td>
-                <td>{{row.xiangzhen}}</td>
-                <td>{{row.shequ}}</td>
-                <td>{{row.xingzhengcun}}</td>
-                <td>{{row.zuizhongzuzhi}}</td>
-                <td>{{row.wanggejingli}}</td>
-                <td>{{row.dashichangwangge}}</td>
-                <td>{{row.dashichangwangge_bianhao}}</td>
+                <td>{{row.username}}</td>
+                <td>{{row.password}}</td>
+                <td>{{row.fullname}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.phone}}</td>
                 <td>
                     {% if row.status %}
                     <input type="checkbox" data-id="{{row.id}}" class="status" data-on-text="生效" data-off-text="失效"
@@ -56,7 +50,7 @@
                     {% endif %}
                 </td>
                 <td><a class='fa fa-lg fa-edit text-light-blue'
-                       href='{{ url_for("main.wanggeedit", id=row.id) }}'></a></td>
+                       href='{{ url_for("main.useredit", id=row.id) }}'></a></td>
                 <td><a class='fa fa-lg fa-warning text-red' href='?action=del&id={{row.id}}'></a></td>
             </tr>
             {% endfor %}
@@ -98,7 +92,7 @@
         });
     }
     function switchStatus(id, status, switchBox) {
-        restTemplate("PUT", "/wangge/" + id + "/status/" + status, null, function () {
+        restTemplate("PUT", "/user/" + id + "/status/" + status, null, function () {
             $($(switchBox)).bootstrapSwitch("state", status);
         });
     }

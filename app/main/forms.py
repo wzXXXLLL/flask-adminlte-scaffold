@@ -32,3 +32,20 @@ class wanggeForm(FlaskForm):
     dashichangwangge_bianhao = IntegerField('对应大市场网格编号')
     status = BooleanField('生效标识', default=True)
     submit = SubmitField('提交')
+
+class userForm(FlaskForm):
+    username = StringField('用户名', validators=[DataRequired(message='不能为空'), Length(0, 64, message='长度不正确')])
+    password = StringField('密码', validators=[DataRequired(message='不能为空'), Length(0, 64, message='长度不正确')])
+
+    fullname = StringField('真实姓名', validators=[DataRequired(message='不能为空'), Length(0, 64, message='长度不正确')])
+    email = StringField('邮箱', validators=[DataRequired(message='不能为空'), Length(0, 64, message='长度不正确')])
+    phone = IntegerField('电话')
+    status = BooleanField('生效标识', default=True)
+    submit = SubmitField('提交')
+    """
+    username = CharField()  # 用户名
+    password = CharField()  # 密码
+    fullname = CharField()  # 真实姓名
+    email = CharField()  # 邮箱
+    phone = CharField()  # 电话
+    status = BooleanField(default=True)  # 生效失效标识"""
